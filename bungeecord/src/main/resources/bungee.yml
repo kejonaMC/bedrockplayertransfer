@@ -1,0 +1,3 @@
+name: BedrockPlayerTransfer
+version: '${project.version}'
+main: dev.projectg.bedrockplayertransfer.BedrockPlayerTransfer

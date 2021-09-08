@@ -1,0 +1,4 @@
+name: BedrockPlayerTransfer
+version: '${project.version}'
+main: dev.projectg.bedrockplayertransfer.BedrockPlayerTransfer
+api-version: 1.17
