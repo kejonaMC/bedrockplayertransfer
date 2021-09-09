@@ -8,7 +8,7 @@ import net.md_5.bungee.api.plugin.Command;
 public class TransferCommand extends Command {
 
     public TransferCommand() {
-        super("transfer", "bedrockpackettransfer.transfer");
+        super("transfer", "bedrockplayertransfer.transfer");
     }
 
     @Override

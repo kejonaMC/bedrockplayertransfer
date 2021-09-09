@@ -15,4 +15,8 @@ public class TransferCommand implements SimpleCommand {
             new TransferForm().packetBuilder(player);
         }
     }
+    @Override
+    public boolean hasPermission(final Invocation invocation) {
+        return invocation.source().hasPermission("bedrockplayertransfer.transfer");
+    }
 }
