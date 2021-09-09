@@ -46,7 +46,7 @@
     </dependencies>
 
     <build>
-        <finalName>GeyserBPlayer-Spigot</finalName>
+        <finalName>BedrockPlayerTransfer-Spigot</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources/</directory>
