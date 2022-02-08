@@ -1,8 +1,8 @@
 package dev.projectg.bedrockplayertransfer.forms;
 
-import dev.projectg.bedrockplayermanager.TransferPacketBuilder;
-import dev.projectg.bedrockplayertransfer.BedrockPlayerTransfer;
-import dev.projectg.bedrockplayermanager.CheckJavaOrFloodPlayer;
+import dev.projectg.bedrockplayerManager.TransferPacketBuilder;
+import dev.projectg.bedrockplayertransfer.BungeecordBedrockPlayerTransfer;
+import dev.projectg.bedrockplayerManager.CheckJavaOrFloodPlayer;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import org.geysermc.cumulus.SimpleForm;
@@ -36,7 +36,7 @@ public class ConfirmationForm {
 
                                     if (response.getClickedButtonId() == 1) {
                                         // clicked No
-                                        ProxiedPlayer getplayer = BedrockPlayerTransfer.getPlugin().getProxy().getPlayer(target);
+                                        ProxiedPlayer getplayer = BungeecordBedrockPlayerTransfer.getPlugin().getProxy().getPlayer(target);
                                         assert getplayer != null;
                                         getplayer.sendMessage(new TextComponent("You declined server transferring"));
                                     }

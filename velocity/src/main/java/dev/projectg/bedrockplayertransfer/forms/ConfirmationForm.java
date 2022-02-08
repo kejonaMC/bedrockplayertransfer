@@ -1,9 +1,9 @@
 package dev.projectg.bedrockplayertransfer.forms;
 
 import com.velocitypowered.api.proxy.Player;
-import dev.projectg.bedrockplayermanager.CheckJavaOrFloodPlayer;
-import dev.projectg.bedrockplayermanager.TransferPacketBuilder;
-import dev.projectg.bedrockplayertransfer.BedrockPlayerTransfer;
+import dev.projectg.bedrockplayerManager.CheckJavaOrFloodPlayer;
+import dev.projectg.bedrockplayerManager.TransferPacketBuilder;
+import dev.projectg.bedrockplayertransfer.VelocityBedrockPlayerTransfer;
 import net.kyori.adventure.text.Component;
 import org.geysermc.cumulus.SimpleForm;
 import org.geysermc.cumulus.response.SimpleFormResponse;
@@ -36,7 +36,7 @@ public class ConfirmationForm {
 
                                     if (response.getClickedButtonId() == 1) {
                                         // clicked No
-                                        Optional<Player> getplayer = BedrockPlayerTransfer.getPlugin().getProxyServer().getPlayer(target);
+                                        Optional<Player> getplayer = VelocityBedrockPlayerTransfer.getPlugin().getProxyServer().getPlayer(target);
                                         getplayer.ifPresent(player -> player.sendMessage(Component.text("You declined server transferring")));
                                     }
                                 }

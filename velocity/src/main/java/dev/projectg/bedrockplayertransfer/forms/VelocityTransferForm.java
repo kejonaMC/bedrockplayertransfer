@@ -1,8 +1,8 @@
 package dev.projectg.bedrockplayertransfer.forms;
 
 import com.velocitypowered.api.proxy.Player;
-import dev.projectg.bedrockplayermanager.CheckJavaOrFloodPlayer;
-import dev.projectg.bedrockplayertransfer.BedrockPlayerTransfer;
+import dev.projectg.bedrockplayerManager.CheckJavaOrFloodPlayer;
+import dev.projectg.bedrockplayertransfer.VelocityBedrockPlayerTransfer;
 import net.kyori.adventure.text.Component;
 import org.geysermc.cumulus.CustomForm;
 import org.geysermc.cumulus.response.CustomFormResponse;
@@ -15,12 +15,12 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-public class TransferForm {
+public class VelocityTransferForm {
 
     public void packetBuilder(Player player){
 
         UUID uuid = player.getUniqueId();
-        List<String> names = BedrockPlayerTransfer.getPlugin().getProxyServer().getAllPlayers().stream().map(Player::getUsername).collect(Collectors.toList());
+        List<String> names = VelocityBedrockPlayerTransfer.getPlugin().getProxyServer().getAllPlayers().stream().map(Player::getUsername).collect(Collectors.toList());
         String[] playerList = names.toArray(new String[0]);
         boolean isFloodgatePlayer = CheckJavaOrFloodPlayer.isFloodgatePlayer(uuid);
         if (isFloodgatePlayer) {
@@ -40,7 +40,7 @@ public class TransferForm {
                                 String serverip = response.getInput(1);
                                 int serverport = Integer.parseInt(Objects.requireNonNull(response.getInput(2)));
                                 String name = names.get(clickedIndex);
-                                Optional<Player> getplayer = BedrockPlayerTransfer.getPlugin().getProxyServer().getPlayer(name);
+                                Optional<Player> getplayer = VelocityBedrockPlayerTransfer.getPlugin().getProxyServer().getPlayer(name);
                                 if (getplayer.isPresent()) {
                                     UUID targetPlayer = getplayer.get().getUniqueId();
                                     boolean isTargetFloodgatePlayer = CheckJavaOrFloodPlayer.isFloodgatePlayer(targetPlayer);

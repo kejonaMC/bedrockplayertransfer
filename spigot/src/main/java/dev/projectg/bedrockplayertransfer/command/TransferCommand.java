@@ -1,6 +1,6 @@
 package dev.projectg.bedrockplayertransfer.command;
 
-import dev.projectg.bedrockplayertransfer.forms.TransferForm;
+import dev.projectg.bedrockplayertransfer.forms.SpigotTransferForm;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -18,7 +18,7 @@ public class TransferCommand implements CommandExecutor {
         Player player = (Player) sender;
         try {
             if (command.getName().equalsIgnoreCase("transfer") && player.hasPermission("bedrockpackettransfer.transfer")) {
-                new TransferForm().packetBuilder(player);
+                new SpigotTransferForm().packetBuilder(player);
             }
         } catch (Exception e) {
             sender.sendMessage("Sorry something went wrong with the transfer form");

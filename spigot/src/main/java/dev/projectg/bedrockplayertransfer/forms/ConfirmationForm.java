@@ -1,7 +1,7 @@
 package dev.projectg.bedrockplayertransfer.forms;
 
-import dev.projectg.bedrockplayermanager.CheckJavaOrFloodPlayer;
-import dev.projectg.bedrockplayermanager.TransferPacketBuilder;
+import dev.projectg.bedrockplayerManager.CheckJavaOrFloodPlayer;
+import dev.projectg.bedrockplayerManager.TransferPacketBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.geysermc.cumulus.SimpleForm;

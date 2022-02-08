@@ -6,11 +6,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.Objects;
 import java.util.logging.Logger;
 
-public final class BedrockPlayerTransfer extends JavaPlugin {
+public final class SpigotBedrockPlayerTransfer extends JavaPlugin {
 
     public boolean loadSpigot = false;
 
-    public static BedrockPlayerTransfer plugin;
+    public static SpigotBedrockPlayerTransfer plugin;
     public Logger logger;
 
     @Override
@@ -22,7 +22,7 @@ public final class BedrockPlayerTransfer extends JavaPlugin {
         // Plugin startup logic
 
     }
-    public static BedrockPlayerTransfer getPlugin() {
+    public static SpigotBedrockPlayerTransfer getPlugin() {
         return plugin;
     }
 }

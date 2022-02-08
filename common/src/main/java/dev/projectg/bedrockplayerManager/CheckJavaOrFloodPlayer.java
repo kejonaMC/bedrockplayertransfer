@@ -1,4 +1,4 @@
-package dev.projectg.bedrockplayermanager;
+package dev.projectg.bedrockplayerManager;
 
 import org.geysermc.floodgate.api.FloodgateApi;
 

@@ -1,6 +1,6 @@
 package dev.projectg.bedrockplayertransfer.forms;
 
-import dev.projectg.bedrockplayermanager.CheckJavaOrFloodPlayer;
+import dev.projectg.bedrockplayerManager.CheckJavaOrFloodPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.geysermc.cumulus.CustomForm;
@@ -13,7 +13,7 @@ import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-public class TransferForm {
+public class SpigotTransferForm {
 
     public void packetBuilder(Player player){
 

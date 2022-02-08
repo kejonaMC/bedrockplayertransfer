@@ -12,14 +12,14 @@ import dev.projectg.bedrockplayertransfer.command.TransferCommand;
 @Plugin(id = "bedrockpackettransfer", name = "BedrockPacketTransfer", version = "1.0", description = "Transfer a Bedrock player to an other server.", authors = {"ProjectG"},
             dependencies = {@Dependency(id = "geyser")})
 
-    public class BedrockPlayerTransfer {
+    public class VelocityBedrockPlayerTransfer {
 
     public ProxyServer server;
-    private static BedrockPlayerTransfer plugin;
+    private static VelocityBedrockPlayerTransfer plugin;
 
     @Inject
-    public BedrockPlayerTransfer(ProxyServer server) {
-        BedrockPlayerTransfer.plugin = this;
+    public VelocityBedrockPlayerTransfer(ProxyServer server) {
+        VelocityBedrockPlayerTransfer.plugin = this;
         this.server = server;
     }
 
@@ -32,7 +32,7 @@ import dev.projectg.bedrockplayertransfer.command.TransferCommand;
         return server;
     }
 
-    public static BedrockPlayerTransfer getPlugin() {
+    public static VelocityBedrockPlayerTransfer getPlugin() {
         return plugin;
     }
 }
