@@ -1,4 +1,9 @@
 name: BedrockPlayerTransfer
 version: '${project.version}'
-main: dev.projectg.bedrockplayertransfer.BedrockPlayerTransfer
+main: dev.projectg.bedrockplayertransfer.SpigotBedrockPlayerTransfer
 api-version: 1.17
+commands:
+  transfer:
+    description: transfer a player to another server
+    permission: bedrockplayertransfer.transfer
+    aliases: /transfer

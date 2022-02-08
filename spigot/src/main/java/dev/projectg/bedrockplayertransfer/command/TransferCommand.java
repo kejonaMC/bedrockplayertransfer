@@ -17,7 +17,7 @@ public class TransferCommand implements CommandExecutor {
         }
         Player player = (Player) sender;
         try {
-            if (command.getName().equalsIgnoreCase("transfer") && player.hasPermission("bedrockpackettransfer.transfer")) {
+            if (command.getName().equalsIgnoreCase("transfer") && player.hasPermission("bedrockplayertransfer.transfer")) {
                 new SpigotTransferForm().packetBuilder(player);
             }
         } catch (Exception e) {

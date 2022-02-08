@@ -1,6 +1,7 @@
 package dev.projectg.bedrockplayertransfer.forms;
 
 import dev.projectg.bedrockplayerManager.CheckJavaOrFloodPlayer;
+import dev.projectg.bedrockplayertransfer.SpigotBedrockPlayerTransfer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.geysermc.cumulus.CustomForm;
@@ -18,8 +19,12 @@ public class SpigotTransferForm {
     public void packetBuilder(Player player){
 
         UUID uuid = player.getUniqueId();
+        //user list
         List<String> names = Bukkit.getOnlinePlayers().stream().map(Player::getName).collect(Collectors.toList());
         String[] playerList = names.toArray(new String[0]);
+        //ip list
+        List<String> ipAdresses = SpigotBedrockPlayerTransfer.getPlugin().ipAdresses;
+        String[] ipList = ipAdresses.toArray(new String[0]);
         boolean isFloodgatePlayer = CheckJavaOrFloodPlayer.isFloodgatePlayer(uuid);
         if (isFloodgatePlayer) {
             FloodgatePlayer fPlayer = FloodgateApi.getInstance().getPlayer(uuid);
@@ -27,6 +32,7 @@ public class SpigotTransferForm {
                     CustomForm.builder()
                             .title("Transfer Player")
                             .dropdown("Select Player", playerList)
+                            .dropdown("Ip Adresses", ipList)
                             .input("Server IP")
                             .input("Server Port")
                             .responseHandler((form, responseData) -> {

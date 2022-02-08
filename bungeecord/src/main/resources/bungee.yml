@@ -1,5 +1,5 @@
 name: BedrockPlayerTransfer
 version: '${project.version}'
-main: dev.projectg.bedrockplayertransfer.BedrockPlayerTransfer
+main: dev.projectg.bedrockplayertransfer.BungeecordBedrockPlayerTransfer
 author: ProjectG
 depends: ["Geyser-BungeeCord"]
