@@ -1,7 +1,7 @@
 package dev.projectg.bedrockplayertransfer.forms;
 
 import com.velocitypowered.api.proxy.Player;
-import dev.projectg.bedrockplayerManager.CheckJavaOrFloodPlayer;
+import dev.projectg.bedrockplayertransfer.FloodgateHandler;
 import dev.projectg.bedrockplayertransfer.VelocityBedrockPlayerTransfer;
 import net.kyori.adventure.text.Component;
 import org.geysermc.cumulus.CustomForm;
@@ -22,7 +22,7 @@ public class VelocityTransferForm {
         UUID uuid = player.getUniqueId();
         List<String> names = VelocityBedrockPlayerTransfer.getPlugin().getProxyServer().getAllPlayers().stream().map(Player::getUsername).collect(Collectors.toList());
         String[] playerList = names.toArray(new String[0]);
-        boolean isFloodgatePlayer = CheckJavaOrFloodPlayer.isFloodgatePlayer(uuid);
+        boolean isFloodgatePlayer = FloodgateHandler.isFloodgatePlayer(uuid);
         if (isFloodgatePlayer) {
             FloodgatePlayer fPlayer = FloodgateApi.getInstance().getPlayer(uuid);
             fPlayer.sendForm(
@@ -43,7 +43,7 @@ public class VelocityTransferForm {
                                 Optional<Player> getplayer = VelocityBedrockPlayerTransfer.getPlugin().getProxyServer().getPlayer(name);
                                 if (getplayer.isPresent()) {
                                     UUID targetPlayer = getplayer.get().getUniqueId();
-                                    boolean isTargetFloodgatePlayer = CheckJavaOrFloodPlayer.isFloodgatePlayer(targetPlayer);
+                                    boolean isTargetFloodgatePlayer = FloodgateHandler.isFloodgatePlayer(targetPlayer);
                                     if (isTargetFloodgatePlayer) {
                                         new ConfirmationForm().confirmation(targetPlayer, serverip, serverport);
                                     } else {

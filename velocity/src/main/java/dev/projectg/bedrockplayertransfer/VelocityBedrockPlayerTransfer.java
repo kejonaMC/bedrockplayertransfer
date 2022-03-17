@@ -9,7 +9,7 @@ import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.proxy.ProxyServer;
 import dev.projectg.bedrockplayertransfer.command.TransferCommand;
 
-@Plugin(id = "bedrockpackettransfer", name = "BedrockPacketTransfer", version = "1.0", description = "Transfer a Bedrock player to an other server.", authors = {"ProjectG"},
+@Plugin(id = "bedrockplayertransfer", name = "BedrockPlayerTransfer", version = "2.0", description = "Transfer a Bedrock player to an other server.", authors = {"Jens, Konicai"},
             dependencies = {@Dependency(id = "geyser")})
 
     public class VelocityBedrockPlayerTransfer {

@@ -1,7 +1,7 @@
 package dev.projectg.bedrockplayertransfer.forms;
 
 import dev.projectg.bedrockplayertransfer.BungeecordBedrockPlayerTransfer;
-import dev.projectg.bedrockplayerManager.CheckJavaOrFloodPlayer;
+import dev.projectg.bedrockplayertransfer.FloodgateHandler;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
@@ -23,7 +23,7 @@ public class BungeecordTransferForm {
         UUID uuid = player.getUniqueId();
         List<String> names = ProxyServer.getInstance().getPlayers().stream().map(ProxiedPlayer::getName).collect(Collectors.toList());
         String[] playerList = names.toArray(new String[0]);
-        boolean isFloodgatePlayer = CheckJavaOrFloodPlayer.isFloodgatePlayer(uuid);
+        boolean isFloodgatePlayer = FloodgateHandler.isFloodgatePlayer(uuid);
         if (isFloodgatePlayer) {
             FloodgatePlayer fPlayer = FloodgateApi.getInstance().getPlayer(uuid);
             fPlayer.sendForm(
@@ -42,7 +42,7 @@ public class BungeecordTransferForm {
                                 int serverport = Integer.parseInt(Objects.requireNonNull(response.getInput(2)));
                                 String name = names.get(clickedIndex);
                                 UUID targetPlayer = BungeecordBedrockPlayerTransfer.getPlugin().getProxy().getPlayer(name).getUniqueId();
-                                boolean isTargetFloodgatePlayer = CheckJavaOrFloodPlayer.isFloodgatePlayer(targetPlayer);
+                                boolean isTargetFloodgatePlayer = FloodgateHandler.isFloodgatePlayer(targetPlayer);
                                 if (isTargetFloodgatePlayer) {
                                     new ConfirmationForm().confirmation(targetPlayer,serverip,serverport);
                                 }

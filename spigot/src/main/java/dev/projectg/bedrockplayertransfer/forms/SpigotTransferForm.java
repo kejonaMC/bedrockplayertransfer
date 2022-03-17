@@ -1,6 +1,6 @@
 package dev.projectg.bedrockplayertransfer.forms;
 
-import dev.projectg.bedrockplayerManager.CheckJavaOrFloodPlayer;
+import dev.projectg.bedrockplayertransfer.FloodgateHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.geysermc.cumulus.CustomForm;
@@ -20,7 +20,7 @@ public class SpigotTransferForm {
         UUID uuid = player.getUniqueId();
         List<String> names = Bukkit.getOnlinePlayers().stream().map(Player::getName).collect(Collectors.toList());
         String[] playerList = names.toArray(new String[0]);
-        boolean isFloodgatePlayer = CheckJavaOrFloodPlayer.isFloodgatePlayer(uuid);
+        boolean isFloodgatePlayer = FloodgateHandler.isFloodgatePlayer(uuid);
         if (isFloodgatePlayer) {
             FloodgatePlayer fPlayer = FloodgateApi.getInstance().getPlayer(uuid);
             fPlayer.sendForm(
@@ -39,7 +39,7 @@ public class SpigotTransferForm {
                                 int serverport = Integer.parseInt(Objects.requireNonNull(response.getInput(2)));
                                 String name = names.get(clickedIndex);
                                 UUID targetPlayer = Objects.requireNonNull(Bukkit.getPlayer(name)).getUniqueId();
-                                boolean isTargetFloodgatePlayer = CheckJavaOrFloodPlayer.isFloodgatePlayer(targetPlayer);
+                                boolean isTargetFloodgatePlayer = FloodgateHandler.isFloodgatePlayer(targetPlayer);
                                 if (isTargetFloodgatePlayer) {
                                     new ConfirmationForm().confirmation(targetPlayer,serverip,serverport);
                                 }

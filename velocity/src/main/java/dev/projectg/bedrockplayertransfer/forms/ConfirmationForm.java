@@ -1,8 +1,8 @@
 package dev.projectg.bedrockplayertransfer.forms;
 
 import com.velocitypowered.api.proxy.Player;
-import dev.projectg.bedrockplayerManager.CheckJavaOrFloodPlayer;
-import dev.projectg.bedrockplayerManager.TransferPacketBuilder;
+import dev.projectg.bedrockplayertransfer.FloodgateHandler;
+import dev.projectg.bedrockplayertransfer.TransferPacketBuilder;
 import dev.projectg.bedrockplayertransfer.VelocityBedrockPlayerTransfer;
 import net.kyori.adventure.text.Component;
 import org.geysermc.cumulus.SimpleForm;
@@ -16,7 +16,7 @@ import java.util.UUID;
 public class ConfirmationForm {
     public void confirmation(UUID target, String ip, int port) {
 
-        boolean isFloodgatePlayer = CheckJavaOrFloodPlayer.isFloodgatePlayer(target);
+        boolean isFloodgatePlayer = FloodgateHandler.isFloodgatePlayer(target);
         if (isFloodgatePlayer) {
             FloodgatePlayer fPlayer = FloodgateApi.getInstance().getPlayer(target);
             fPlayer.sendForm(
@@ -32,13 +32,11 @@ public class ConfirmationForm {
                                 }
                                 if (response.getClickedButtonId() == 0) {
                                     // clicked Yes
-                                    new TransferPacketBuilder().createPacket(ip,port,target);
-
-                                    if (response.getClickedButtonId() == 1) {
-                                        // clicked No
-                                        Optional<Player> getplayer = VelocityBedrockPlayerTransfer.getPlugin().getProxyServer().getPlayer(target);
-                                        getplayer.ifPresent(player -> player.sendMessage(Component.text("You declined server transferring")));
-                                    }
+                                    new TransferPacketBuilder().sendPacket(ip, port, target);
+                                } else if (response.getClickedButtonId() == 1) {
+                                    // clicked No
+                                    Optional<Player> player = VelocityBedrockPlayerTransfer.getPlugin().getProxyServer().getPlayer(target);
+                                    player.ifPresent(p -> p.sendMessage(Component.text("You declined server transferring")));
                                 }
                             }));
         }

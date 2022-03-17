@@ -3,6 +3,7 @@ package dev.projectg.bedrockplayertransfer.command;
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.Player;
+import dev.projectg.bedrockplayertransfer.Constants;
 import dev.projectg.bedrockplayertransfer.forms.VelocityTransferForm;
 
 public class TransferCommand implements SimpleCommand {
@@ -17,6 +18,6 @@ public class TransferCommand implements SimpleCommand {
     }
     @Override
     public boolean hasPermission(final Invocation invocation) {
-        return invocation.source().hasPermission("bedrockplayertransfer.transfer");
+        return invocation.source().hasPermission(Constants.PERMISSION);
     }
 }
